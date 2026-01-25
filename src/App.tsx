@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
-import { OrbitControls } from "@react-three/drei";
+import { FirstPersonControls } from "@react-three/drei";
 import AnimatedBox from "./components/animated-box";
 
 function App() {
@@ -8,7 +8,8 @@ function App() {
     <div className="w-screen h-screen">
       <Canvas>
         <color attach="background" args={["gray"]} />
-        <OrbitControls />
+        {/* <OrbitControls /> */}
+        <FirstPersonControls movementSpeed={5} />
         <AnimatedBox />
         <directionalLight position={[2, 5, 1]} />
       </Canvas>
