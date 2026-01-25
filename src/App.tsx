@@ -13,9 +13,10 @@ function App() {
         <color attach="background" args={["black"]} />
         <OrbitControls />
         <mesh>
-          <sphereGeometry args={[1, 40, 40]} />
+          {/* <sphereGeometry args={[1, 40, 40]} /> */}
           {/* [radius  , widthSegments, heightSegments] */}
-          <meshBasicMaterial wireframe />
+          <boxGeometry args={[2, 3, 2]} />
+          <meshBasicMaterial color={"blue"} />
         </mesh>
       </Canvas>
     </div>
