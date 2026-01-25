@@ -11,5 +11,10 @@
    > the more segments and vertices the smoother the mesh
 
 4. various geometry types :-
+
    > sphereGeometry
    > boxGeometry
+
+5. various material types :-
+   > meshBasicMaterial
+   > meshStandardMaterial
