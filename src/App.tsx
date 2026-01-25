@@ -21,7 +21,7 @@ function App() {
         {/* shows the grid*/}
         {/* [length , divisions , color of center lines , color of lines] */}
         <gridHelper args={[10, 10, "red", "blue"]} />
-        <color attach="background" args={["white"]} />
+        <color attach="background" args={["gray"]} />
         <OrbitControls />
         <AnimatedBox />
         <directionalLight position={[2, 5, 1]} />
