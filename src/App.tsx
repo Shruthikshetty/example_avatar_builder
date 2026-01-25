@@ -27,7 +27,8 @@ function App() {
         <AnimatedBox />
         {/* <ambientLight intensity={0.5} color={"white"} /> */}
         {/* <directionalLight position={[2, 5, 1]} intensity={1} /> */}
-        <LightWithHelper />
+        {/* <LightWithHelper /> */}
+        <pointLight position={[2, 5, 1]} intensity={10} />
       </Canvas>
     </div>
   );
