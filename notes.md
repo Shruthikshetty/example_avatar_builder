@@ -16,5 +16,8 @@
    > boxGeometry
 
 5. various material types :-
+
    > meshBasicMaterial
    > meshStandardMaterial
+
+6. animations happen using a mechanism called the render loop
