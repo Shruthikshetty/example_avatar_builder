@@ -21,3 +21,9 @@
    > meshStandardMaterial
 
 6. animations happen using a mechanism called the render loop
+
+7. lights :-
+   > ambientLight :- provides a base level of light to the scene
+   > directionalLight :- provides a directional light to the scene
+   > pointLight :- provides a point light to the scene
+   > spotLight :- provides a spot light to the scene

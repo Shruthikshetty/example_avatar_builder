@@ -24,7 +24,9 @@ function App() {
         <color attach="background" args={["gray"]} />
         <OrbitControls />
         <AnimatedBox />
-        <directionalLight position={[2, 5, 1]} />
+        {/* <ambientLight intensity={0.5} color={"white"} /> */}
+        {/* <directionalLight position={[2, 5, 1]} intensity={1} /> */}
+        <spotLight position={[2, 5, 1]} intensity={80} color={"yellow"} />
       </Canvas>
     </div>
   );
