@@ -8,7 +8,11 @@ function App() {
       <Canvas>
         <color attach="background" args={["gray"]} />
         <OrbitControls />
-        <mesh>
+        <mesh
+          position={[-2, 2, -1]}
+          rotation={[0, 0, Math.PI]}
+          scale={[2, 0.5, 2]}
+        >
           {/* <sphereGeometry args={[1, 40, 40]} /> */}
           {/* [radius  , widthSegments, heightSegments] */}
           {/* <boxGeometry args={[2, 3, 2]} /> */}
