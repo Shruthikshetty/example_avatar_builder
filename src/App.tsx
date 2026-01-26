@@ -7,7 +7,9 @@ import {
   // GizmoViewcube,
 } from "@react-three/drei";
 import AnimatedBox from "./components/animated-box";
-import LightWithHelper from "./components/light-with-helper";
+import LightWithHelper, {
+  DirectionalLightWithHelper,
+} from "./components/light-with-helper";
 
 function App() {
   return (
@@ -27,7 +29,7 @@ function App() {
         <AnimatedBox />
         <ambientLight intensity={0.5} color={"white"} />
         {/* <directionalLight position={[2, 5, 1]} intensity={1} /> */}
-        <LightWithHelper />
+        <DirectionalLightWithHelper />
         {/* <pointLight position={[2, 5, 1]} intensity={10} /> */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
           <planeGeometry args={[20, 20]} />

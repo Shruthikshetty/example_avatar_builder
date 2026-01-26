@@ -39,7 +39,7 @@ export const DirectionalLightWithHelper = () => {
     <>
       <directionalLight
         ref={lightRef}
-        position={[-5, 8, 1]}
+        position={[-5, 4, 1]}
         intensity={80}
         color={"yellow"}
         castShadow
