@@ -8,7 +8,7 @@ import {
 } from "@react-three/drei";
 // import AnimatedBox from "./components/animated-box";
 import LightWithHelper from "./components/light-with-helper";
-import DemoModel from "./components/demo-model";
+import DemoModel, { DemoModel2 } from "./components/demo-model";
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
         <OrbitControls />
         {/* <AnimatedBox /> */}
         <DemoModel />
+        <DemoModel2 />
         <ambientLight intensity={0.5} color={"white"} />
         {/* <directionalLight position={[2, 5, 1]} intensity={1} /> */}
         <LightWithHelper />
