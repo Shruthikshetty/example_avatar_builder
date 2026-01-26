@@ -25,7 +25,7 @@ const AnimatedBox = () => {
     boxRef.current.rotation.z += speed;
   });
   return (
-    <mesh ref={boxRef}>
+    <mesh ref={boxRef} position={[0, 2, 0]} castShadow>
       <boxGeometry args={[2, 2, 2]} />
       <meshStandardMaterial color={color} />
     </mesh>

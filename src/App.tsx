@@ -12,7 +12,7 @@ import LightWithHelper from "./components/light-with-helper";
 function App() {
   return (
     <div className="w-screen h-screen">
-      <Canvas>
+      <Canvas shadows>
         <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
           <GizmoViewport />
           {/* <GizmoViewcube /> */}
@@ -25,10 +25,14 @@ function App() {
         <color attach="background" args={["gray"]} />
         <OrbitControls />
         <AnimatedBox />
-        {/* <ambientLight intensity={0.5} color={"white"} /> */}
+        <ambientLight intensity={0.5} color={"white"} />
         {/* <directionalLight position={[2, 5, 1]} intensity={1} /> */}
-        {/* <LightWithHelper /> */}
-        <pointLight position={[2, 5, 1]} intensity={10} />
+        <LightWithHelper />
+        {/* <pointLight position={[2, 5, 1]} intensity={10} /> */}
+        <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+          <planeGeometry args={[20, 20]} />
+          <meshStandardMaterial color={"gray"} />
+        </mesh>
       </Canvas>
     </div>
   );

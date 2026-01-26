@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import type { SpotLight } from "three";
-import { SpotLightHelper } from "three";
+import type { DirectionalLight, SpotLight } from "three";
+import { DirectionalLightHelper, SpotLightHelper } from "three";
 import { useHelper } from "@react-three/drei";
 import { useControls } from "leva";
 
@@ -22,9 +22,27 @@ const LightWithHelper = () => {
         ref={lightRef}
         penumbra={penumbra}
         angle={angle}
-        position={[2, 5, 1]}
+        position={[2, 10, 1]}
         intensity={80}
         color={"yellow"}
+        castShadow
+      />
+    </>
+  );
+};
+
+export const DirectionalLightWithHelper = () => {
+  const lightRef = useRef<DirectionalLight>(null!);
+  useHelper(lightRef, DirectionalLightHelper, 2, "crimson");
+
+  return (
+    <>
+      <directionalLight
+        ref={lightRef}
+        position={[-5, 8, 1]}
+        intensity={80}
+        color={"yellow"}
+        castShadow
       />
     </>
   );
