@@ -22,9 +22,9 @@ const LightWithHelper = () => {
         ref={lightRef}
         penumbra={penumbra}
         angle={angle}
-        position={[2, 10, 1]}
+        position={[1, 5, 1]}
         intensity={80}
-        color={"yellow"}
+        color={"white"}
         castShadow
       />
     </>
