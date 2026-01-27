@@ -1,10 +1,11 @@
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import type { Mesh } from "three";
 import { useControls } from "leva";
 
 const AnimatedBox = () => {
   const boxRef = useRef<Mesh>(null);
+  const [isWireFrame, setIsWireFrame] = useState(false);
 
   const { speed, color } = useControls({
     color: "#00bfff",
@@ -24,10 +25,21 @@ const AnimatedBox = () => {
     boxRef.current.rotation.y += speed;
     boxRef.current.rotation.z += speed;
   });
+
+  function handleClick() {
+    setIsWireFrame(!isWireFrame);
+  }
+
   return (
-    <mesh ref={boxRef} position={[0, 2, 0]} castShadow>
+    <mesh
+      ref={boxRef}
+      position={[0, 3, 0]}
+      castShadow
+      onClick={handleClick}
+      scale={0.5}
+    >
       <boxGeometry args={[2, 2, 2]} />
-      <meshStandardMaterial color={color} />
+      <meshStandardMaterial color={color} wireframe={isWireFrame} />
     </mesh>
   );
 };

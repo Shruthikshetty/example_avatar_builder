@@ -6,7 +6,6 @@ import {
   GizmoViewport,
   // GizmoViewcube,
 } from "@react-three/drei";
-// import AnimatedBox from "./components/animated-box";
 import LightWithHelper from "./components/light-with-helper";
 import DemoModel, { DemoModel2 } from "./components/demo-model";
 import SphereWithTexture, {
@@ -14,6 +13,7 @@ import SphereWithTexture, {
 } from "./components/sphere-with-texture";
 import BoxWithTexture from "./components/box-with-texture";
 import SceneBackground from "./components/scene-background";
+import AnimatedBox from "./components/animated-box";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
         {/* [length , divisions , color of center lines , color of lines] */}
         <gridHelper args={[10, 10, "red", "blue"]} />
         <OrbitControls />
-        {/* <AnimatedBox /> */}
+        <AnimatedBox />
         <DemoModel />
         <DemoModel2 />
         <ambientLight intensity={0.5} color={"white"} />

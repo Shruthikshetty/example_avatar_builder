@@ -1,6 +1,6 @@
-import { useTexture, useCubeTexture } from "@react-three/drei";
+import { useCubeTexture } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
-import { SRGBColorSpace } from "three";
+//import { SRGBColorSpace } from "three";
 
 const SceneBackground = () => {
   const { scene } = useThree();
@@ -18,7 +18,9 @@ const SceneBackground = () => {
     },
   );
   //   texture.colorSpace = SRGBColorSpace;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   scene.background = texture;
+  return <></>;
 };
 
 export default SceneBackground;
