@@ -14,11 +14,13 @@ import SphereWithTexture, {
 import BoxWithTexture from "./components/box-with-texture";
 import SceneBackground from "./components/scene-background";
 import AnimatedBox from "./components/animated-box";
+import Audio from "./components/audio";
 
 function App() {
   return (
     <div className="w-screen h-screen">
       <Canvas shadows>
+        <Audio />
         <SceneBackground />
         <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
           <GizmoViewport />
