@@ -13,11 +13,13 @@ import SphereWithTexture, {
   SphereWithTexture2,
 } from "./components/sphere-with-texture";
 import BoxWithTexture from "./components/box-with-texture";
+import SceneBackground from "./components/scene-background";
 
 function App() {
   return (
     <div className="w-screen h-screen">
       <Canvas shadows>
+        <SceneBackground />
         <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
           <GizmoViewport />
           {/* <GizmoViewcube /> */}
@@ -27,7 +29,6 @@ function App() {
         {/* shows the grid*/}
         {/* [length , divisions , color of center lines , color of lines] */}
         <gridHelper args={[10, 10, "red", "blue"]} />
-        <color attach="background" args={["gray"]} />
         <OrbitControls />
         {/* <AnimatedBox /> */}
         <DemoModel />
