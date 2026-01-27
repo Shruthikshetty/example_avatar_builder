@@ -1,11 +1,23 @@
-import { useTexture } from "@react-three/drei";
+import { useTexture, useCubeTexture } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { SRGBColorSpace } from "three";
 
 const SceneBackground = () => {
   const { scene } = useThree();
-  const texture = useTexture("castle_brick_02_red_diff_4k.jpg");
-  texture.colorSpace = SRGBColorSpace;
+  const texture = useCubeTexture(
+    [
+      "castle_brick_02_red_diff_4k.jpg",
+      "castle_brick_02_red_diff_4k.jpg",
+      "cobblestone_floor_09_diff_4k.jpg",
+      "castle_brick_02_red_diff_4k.jpg",
+      "cobblestone_floor_09_diff_4k.jpg",
+      "cobblestone_floor_09_diff_4k.jpg",
+    ],
+    {
+      path: "/",
+    },
+  );
+  //   texture.colorSpace = SRGBColorSpace;
   scene.background = texture;
 };
 
