@@ -9,6 +9,10 @@ import {
 // import AnimatedBox from "./components/animated-box";
 import LightWithHelper from "./components/light-with-helper";
 import DemoModel, { DemoModel2 } from "./components/demo-model";
+import SphereWithTexture, {
+  SphereWithTexture2,
+} from "./components/sphere-with-texture";
+import BoxWithTexture from "./components/box-with-texture";
 
 function App() {
   return (
@@ -36,6 +40,9 @@ function App() {
           <planeGeometry args={[20, 20]} />
           <meshStandardMaterial color={"gray"} />
         </mesh>
+        <SphereWithTexture />
+        <SphereWithTexture2 />
+        <BoxWithTexture />
       </Canvas>
     </div>
   );
