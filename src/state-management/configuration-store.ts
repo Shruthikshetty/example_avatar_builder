@@ -52,7 +52,7 @@ const useConfiguratorStore = create<ConfiguratorStore>((set) => ({
   /**
    * function to set the current category
    */
-  setCurrentCategory: (category: string) => {
+  setCurrentCategory: (category: Category) => {
     set({
       currentCategory: category,
     });

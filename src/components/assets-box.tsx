@@ -21,16 +21,22 @@ const AssetsBox = () => {
   }, [fetchCategories]);
 
   return (
-    <div className="rounded-2xl bg-white drop-shadow-md gap-6 flex flex-col">
-      <div className="flex items-center gao-6 pointer-events-auto">
+    <div className="rounded-2xl bg-white drop-shadow-md p-1 gap-6 flex flex-col pointer-events-auto">
+      <div className="flex items-center gap-1 justify-center">
         {categories.map((category) => (
           <button
             key={category.id}
             onClick={() => {
               setCurrentCategory(category);
             }}
-            className={`transition-colors duration-200 font-medium ${currentCategory?.id === category.id ? "bg-indigo-500" : "text-gray-500 hover:text-gray-700"}`}
-          ></button>
+            className={`px-4 py-2 rounded-xl transition-colors duration-200 font-medium ${
+              currentCategory?.id === category.id
+                ? "bg-indigo-500 text-white"
+                : "text-gray-500 hover:text-gray-700 hover:bg-gray-100/50"
+            }`}
+          >
+            {category.name}
+          </button>
         ))}
       </div>
     </div>
