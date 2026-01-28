@@ -29,3 +29,6 @@ passwords.txt
 # pocketbase
 pb_data
 pocketbase.exe
+
+# env
+.env

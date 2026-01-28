@@ -1,10 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import { OrbitControls } from "@react-three/drei";
+import UI from "./components/ui";
 
 function App() {
   return (
     <div className="w-screen h-screen">
+      <UI />
       <Canvas
         camera={{
           position: [3, 3, 3],
