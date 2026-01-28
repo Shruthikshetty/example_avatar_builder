@@ -3,16 +3,25 @@ import pb from "../configs/pocketbase.config";
 
 // types
 
+interface Asset {
+  id: string;
+  name: string;
+  group: string;
+  thumbnail: string;
+  url: File;
+}
+
 interface Category {
   id: string;
   name: string;
   position: number;
+  assets?: Asset[];
 }
 
 interface ConfiguratorStore {
   categories: Category[];
   currentCategory: null | Category;
-  assets: File[];
+  assets: Asset[];
   fetchCategories: () => Promise<void>;
   setCurrentCategory: (category: Category) => void;
 }
@@ -38,10 +47,13 @@ const useConfiguratorStore = create<ConfiguratorStore>((set) => ({
         sort: "+position",
       });
     const assets = await pb
-      .collection<File>("CustomizationAssets")
+      .collection<Asset>("CustomizationAssets")
       .getFullList({
         sort: "-created",
       });
+    categories.forEach((category) => {
+      category.assets = assets.filter((asset) => asset.group === category.id);
+    });
 
     set({
       categories: categories,

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useConfiguratorStore from "../state-management/configuration-store";
 import { useShallow } from "zustand/react/shallow";
+import pb from "../configs/pocketbase.config";
 
 const AssetsBox = () => {
   // get the state from the store
@@ -21,7 +22,7 @@ const AssetsBox = () => {
   }, [fetchCategories]);
 
   return (
-    <div className="rounded-2xl bg-white drop-shadow-md p-1 gap-6 flex flex-col pointer-events-auto">
+    <div className="rounded-2xl bg-white drop-shadow-md p-1 gap-6 flex flex-col pointer-events-auto px-4 overflow-auto">
       <div className="flex items-center gap-1 justify-center">
         {categories.map((category) => (
           <button
@@ -36,6 +37,19 @@ const AssetsBox = () => {
             }`}
           >
             {category.name}
+          </button>
+        ))}
+      </div>
+      <div className="flex gap-2 flex-wrap">
+        {currentCategory?.assets?.map((asset) => (
+          <button
+            key={asset.id}
+            className={`w-20 h-20 rounded-md overflow-hidden bg-gray-200 pointer-events-auto hover:opacity-75 transition-all duration-500 border border-gray-400`}
+          >
+            <img
+              src={pb.files.getURL(asset, asset.thumbnail)}
+              alt={asset.name}
+            />
           </button>
         ))}
       </div>
