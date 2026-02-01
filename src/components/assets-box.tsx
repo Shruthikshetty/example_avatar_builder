@@ -50,7 +50,7 @@ const AssetsBox = () => {
           </button>
         ))}
       </div>
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex gap-2 flex-wra justify-center">
         {currentCategory?.assets?.map((asset) => (
           <button
             key={asset.id}
