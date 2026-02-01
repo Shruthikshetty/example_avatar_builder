@@ -16,6 +16,7 @@ interface Category {
   name: string;
   position: number;
   assets?: Asset[];
+  startingAsset?: string; // this will be relation id
 }
 
 interface ConfiguratorStore {
@@ -58,6 +59,11 @@ const useConfiguratorStore = create<ConfiguratorStore>((set) => ({
     categories.forEach((category) => {
       category.assets = assets.filter((asset) => asset.group === category.id);
       customization[category.name as string] = {};
+      if (category.startingAsset) {
+        customization[category.name as string] = category.assets.find(
+          (asset) => asset.id === category.startingAsset,
+        ) as Asset;
+      }
     });
 
     set({
