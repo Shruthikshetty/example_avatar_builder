@@ -25,6 +25,7 @@ function Avatar(props: any) {
             // in case no url return null
             if (!asset?.url) return null;
             return (
+              /* load asset with suspense so that it doesn't block the render */
               <Suspense key={asset.id}>
                 <Asset
                   url={pb.files.getURL(asset, asset.url)}

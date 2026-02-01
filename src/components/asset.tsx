@@ -3,9 +3,11 @@ import { useGLTF } from "@react-three/drei";
 import { useMemo } from "react";
 import type { Skeleton } from "three";
 
+// load asset from glb and attach skeleton to skinned meshes
 const Asset = ({ url, skeleton }: { url: string; skeleton: Skeleton }) => {
   const { scene } = useGLTF(url);
 
+  // attach skeleton to skinned meshes
   const clonedScene = useMemo(() => {
     const clone = scene.clone(true);
     clone.traverse((child) => {
