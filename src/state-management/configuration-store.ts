@@ -8,7 +8,7 @@ export interface Asset {
   name: string;
   group: string;
   thumbnail: string;
-  url: File;
+  url: string;
 }
 
 interface Category {
