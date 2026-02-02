@@ -1,5 +1,5 @@
-import { Suspense, useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Suspense, useEffect, useRef } from "react";
+import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 import * as Three from "three";
 import useConfiguratorStore, {
   type Asset as AssetType,
@@ -10,12 +10,19 @@ import Asset from "./asset";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Avatar(props: any) {
-  const group = useRef<Three.Group>(null);
+  const groupRef = useRef<Three.Group>(null);
   const { nodes } = useGLTF("/models/Armature.glb");
   const customization = useConfiguratorStore((state) => state.customization);
+  const { animations } = useFBX("/models/Idle.fbx");
+  const { actions } = useAnimations(animations, groupRef);
+
+  // play animation in effect
+  useEffect(() => {
+    actions?.["mixamo.com"]?.play();
+  }, [actions]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={groupRef} {...props} dispose={null}>
       <group name="Scene">
         <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           {/* this contains all the bones */}
