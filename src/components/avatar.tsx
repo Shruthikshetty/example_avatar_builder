@@ -7,6 +7,7 @@ import useConfiguratorStore, {
 
 import pb from "../configs/pocketbase.config";
 import Asset from "./asset";
+import { GLTFExporter } from "three-stdlib";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Avatar(props: any) {
@@ -15,6 +16,41 @@ function Avatar(props: any) {
   const customization = useConfiguratorStore((state) => state.customization);
   const { animations } = useFBX("/models/Idle.fbx");
   const { actions } = useAnimations(animations, groupRef);
+  const setDownloadAvatar = useConfiguratorStore(
+    (state) => state.setDownloadAvatar,
+  );
+
+  useEffect(() => {
+    function download() {
+      const exporter = new GLTFExporter();
+      exporter.parse(
+        groupRef!.current!,
+        function (result) {
+          save(
+            new Blob([result as ArrayBuffer], {
+              type: "application/octet-stream",
+            }),
+            `avatar_${+new Date()}.glb`,
+          );
+        },
+        function (error) {
+          console.error(error);
+        },
+        { binary: true },
+      );
+    }
+
+    const link = document.createElement("a");
+    link.style.display = "none";
+    document.body.appendChild(link);
+
+    function save(blob: Blob, filename: string) {
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+    }
+    setDownloadAvatar(download);
+  }, [setDownloadAvatar]);
 
   // play animation in effect
   useEffect(() => {

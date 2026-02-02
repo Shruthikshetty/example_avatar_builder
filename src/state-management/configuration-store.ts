@@ -27,6 +27,8 @@ interface ConfiguratorStore {
   setCurrentCategory: (category: Category) => void;
   customization: Record<string, object | Asset>;
   changeAsset: (category: string, asset: Asset) => void;
+  downloadAvatar: (() => void) | null;
+  setDownloadAvatar: (download: () => void) => void;
 }
 
 const initialState = {
@@ -34,6 +36,7 @@ const initialState = {
   currentCategory: null,
   assets: [],
   customization: {},
+  downloadAvatar: null,
 };
 
 /**
@@ -94,6 +97,12 @@ const useConfiguratorStore = create<ConfiguratorStore>((set) => ({
         },
       },
     }));
+  },
+  /**
+   * function to download the avatar as glb
+   */
+  setDownloadAvatar: (download: () => void) => {
+    set({ downloadAvatar: download });
   },
 }));
 
